@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Temperature from './BLEDevice/Temperature'
+import CoinSensor from './BLEDevice/CoinSensor';
 import SmartSocket from './TuyaDevice/SmartSocket';
 import SmartLight from './TuyaDevice/SmartLight';
 
@@ -23,7 +23,7 @@ class App extends Component {
               </div>
               <div className="results--section__inner">
                   <br></br><br></br>
-                  <Temperature />
+                  <CoinSensor />
                   <br></br><br></br>
                   <SmartSocket />
                   <br></br><br></br>

@@ -8,8 +8,9 @@ class SmartSocket extends React.Component {
       super(props);
       this.state = {
           isSocketOn: false
-      }
+      };
       this.handleChangeSocket = this.handleChangeSocket.bind(this);
+      this.flashSocket = this.flashSocket.bind(this);
       this.setRedLight = this.setRedLight.bind(this);
       this.setYellowLight = this.setYellowLight.bind(this);
       this.setGreenLight = this.setGreenLight.bind(this);
@@ -32,7 +33,7 @@ class SmartSocket extends React.Component {
   }
 
   initSwitchState() {
-      axios.get(`http://192.168.2.8:3000/getStatusSocket`)
+      axios.get(`http://192.168.2.7:3000/getStatusSocket`)
       .then(res => {
           console.log(res.data);
           this.setState({ isSocketOn: res.data.socketIsOn });
@@ -44,7 +45,7 @@ class SmartSocket extends React.Component {
   }
 
   turnOnSocket() {
-      axios.get(`http://192.168.2.8:3000/turnOnSocket`)
+      axios.get(`http://192.168.2.7:3000/turnOnSocket`)
       .then(res => {
           console.log(res.data);
       })
@@ -54,7 +55,7 @@ class SmartSocket extends React.Component {
   }
 
   turnOffSocket() {
-      axios.get(`http://192.168.2.8:3000/turnOffSocket`)
+      axios.get(`http://192.168.2.7:3000/turnOffSocket`)
       .then(res => {
           console.log(res.data);
       })
@@ -63,8 +64,10 @@ class SmartSocket extends React.Component {
       })
   }
 
-  setColorSocket(colorString) {
-      axios.post(`http://192.168.2.8:3000/setColorSocket`, { color: colorString })
+  flashSocket() {
+      var timer = 10000;
+      
+      axios.post(`http://192.168.2.7:3000/flashSocket`, { utimer: timer })
       .then(res => {
           console.log(res.data);
       })
@@ -74,7 +77,7 @@ class SmartSocket extends React.Component {
   }
 
   setColorLight(colorString) {
-      axios.post(`http://192.168.2.8:3000/setColorSocket`, { color: colorString })
+      axios.post(`http://192.168.2.7:3000/setColorSocket`, { color: colorString })
       .then(res => {
           console.log(res.data);
       })
@@ -120,6 +123,8 @@ class SmartSocket extends React.Component {
                         </div>
                     </label>
                 </div>
+                <br></br><br></br><br></br><br></br>
+                <button class="btn btn-lg btn-secondary" onClick={ this.flashSocket }>Flash socket light</button>
                 <br></br><br></br>
                 <p class="lead">Change socket color</p>
                 <button class="btn btn-lg btn-danger space" onClick={ this.setRedLight }>Red</button>

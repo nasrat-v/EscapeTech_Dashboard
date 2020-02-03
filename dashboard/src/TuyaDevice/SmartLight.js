@@ -8,8 +8,9 @@ class SmartLight extends React.Component {
       super(props);
       this.state = {
           isLightOn: false
-      }
+      };
       this.handleChangeLight = this.handleChangeLight.bind(this);
+      this.flashLight = this.flashLight.bind(this);
       this.setRedLight = this.setRedLight.bind(this);
       this.setYellowLight = this.setYellowLight.bind(this);
       this.setGreenLight = this.setGreenLight.bind(this);
@@ -32,7 +33,7 @@ class SmartLight extends React.Component {
   }
 
   initSwitchState() {
-      axios.get(`http://192.168.2.8:3000/getStatusLight`)
+      axios.get(`http://192.168.2.7:3000/getStatusLight`)
       .then(res => {
           console.log(res.data);
           this.setState({ isLightOn: res.data.lightIsOn });
@@ -44,7 +45,7 @@ class SmartLight extends React.Component {
   }
 
   turnOnLight() {
-      axios.get(`http://192.168.2.8:3000/turnOnLight`)
+      axios.get(`http://192.168.2.7:3000/turnOnLight`)
       .then(res => {
           console.log(res.data);
       })
@@ -54,7 +55,7 @@ class SmartLight extends React.Component {
   }
 
   turnOffLight() {
-      axios.get(`http://192.168.2.8:3000/turnOffLight`)
+      axios.get(`http://192.168.2.7:3000/turnOffLight`)
       .then(res => {
           console.log(res.data);
       })
@@ -63,8 +64,21 @@ class SmartLight extends React.Component {
       })
   }
 
+  flashLight() {
+      var timer = 10000;
+
+      axios.post(`http://192.168.2.7:3000/flashLight`, { utimer: timer })
+      .then(res => {
+          console.log(res.data);
+          this.initSwitchState();
+      })
+      .catch(function (err) {
+          console.error(err);
+      })
+  }
+
   setColorLight(colorString) {
-      axios.post(`http://192.168.2.8:3000/setColorLight`, { color: colorString })
+      axios.post(`http://192.168.2.7:3000/setColorLight`, { color: colorString })
       .then(res => {
           console.log(res.data);
       })
@@ -110,6 +124,8 @@ class SmartLight extends React.Component {
                         </div>
                     </label>
                 </div>
+                <br></br><br></br><br></br><br></br>
+                <button class="btn btn-lg btn-secondary" onClick={ this.flashLight }>Flash light</button>
                 <br></br><br></br>
                 <p class="lead">Change light color</p>
                 <button class="btn btn-lg btn-danger space" onClick={ this.setRedLight }>Red</button>
