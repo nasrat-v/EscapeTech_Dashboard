@@ -113,9 +113,9 @@ class SmartLight extends React.Component {
 
   render() {
     return(
-        <div class="container">
-            <h1 class="title-smart-device">Smart Light</h1>
-            <div class="jumbotron">
+        <div className="container">
+            <h1 className="title-smart-device">Smart Light</h1>
+            <div className="jumbotron">
                 <div className="switch-container">
                     <label>
                         <input ref="switch" checked={ this.state.isLightOn } onChange={ this.handleChangeLight } className="switch" type="checkbox" />
@@ -125,15 +125,15 @@ class SmartLight extends React.Component {
                     </label>
                 </div>
                 <br></br><br></br><br></br><br></br>
-                <button class="btn btn-lg btn-secondary" onClick={ this.flashLight }>Flash light</button>
+                <button className="btn btn-lg btn-secondary" onClick={ this.flashLight }>Flash light</button>
                 <br></br><br></br>
-                <p class="lead">Change light color</p>
-                <button class="btn btn-lg btn-danger space" onClick={ this.setRedLight }>Red</button>
-                <button class="btn btn-lg btn-yellow space" onClick={ this.setYellowLight }>Yellow</button>
-                <button class="btn btn-lg btn-success space" onClick={ this.setGreenLight }>Green</button>
-                <button class="btn btn-lg btn-primary space" onClick={ this.setBlueLight }>Blue</button>
-                <button class="btn btn-lg btn-cyan space" onClick={ this.setCyanLight }>Cyan</button>
-                <button class="btn btn-lg btn-purple space" onClick={ this.setMagentaLight }>Magenta</button>
+                <p className="lead">Change light color</p>
+                <button className="btn btn-lg btn-danger space" onClick={ this.setRedLight }>Red</button>
+                <button className="btn btn-lg btn-yellow space" onClick={ this.setYellowLight }>Yellow</button>
+                <button className="btn btn-lg btn-success space" onClick={ this.setGreenLight }>Green</button>
+                <button className="btn btn-lg btn-primary space" onClick={ this.setBlueLight }>Blue</button>
+                <button className="btn btn-lg btn-cyan space" onClick={ this.setCyanLight }>Cyan</button>
+                <button className="btn btn-lg btn-purple space" onClick={ this.setMagentaLight }>Magenta</button>
             </div>
         </div>
     );

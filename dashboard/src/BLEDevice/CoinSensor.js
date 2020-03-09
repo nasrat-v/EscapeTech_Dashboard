@@ -166,18 +166,18 @@ class CoinSensor extends React.Component {
 
   render() {
       return (
-        <div class="container">
-            <h1 class="title-smart-light">Coin Sensor</h1>
-            <div class="jumbotron">
-                <button class="btn btn-lg btn-secondary" onClick={ this.fetchData }>Refresh</button>
-                <p class="lead">Auto-refresh in: { this.getSeconds() } sec</p>
+        <div className="container">
+            <h1 className="title-smart-light">Coin Sensor</h1>
+            <div className="jumbotron">
+                <button className="btn btn-lg btn-secondary" onClick={ this.fetchData }>Refresh</button>
+                <p className="lead">Auto-refresh in: { this.getSeconds() } sec</p>
                 <br></br><br></br>
-                <p class="lead">Temperature: <strong>{ this.getTemp() }</strong></p>
-                <p class="lead">Humidity: <strong>{ this.getHumi() }</strong></p>
-                <p class="lead">Pressure: <strong>{ this.getPres() }</strong></p>
-                <p class="lead">Magnetometer: <strong>X= { this.getMagnX() } / Y= { this.getMagnY() } / Z= { this.getMagnZ() }</strong></p>
-                <p class="lead">Gyroscope: <strong>X= { this.getGyroX() } / Y= { this.getGyroY() } / Z= { this.getGyroZ() }</strong></p>
-                <p class="lead">Accelerometer: <strong>X= { this.getAcceX() } / Y= { this.getAcceY() } / Z= { this.getAcceZ() }</strong></p>
+                <p className="lead">Temperature: <strong>{ this.getTemp() }</strong></p>
+                <p className="lead">Humidity: <strong>{ this.getHumi() }</strong></p>
+                <p className="lead">Pressure: <strong>{ this.getPres() }</strong></p>
+                <p className="lead">Magnetometer: <strong>X= { this.getMagnX() } / Y= { this.getMagnY() } / Z= { this.getMagnZ() }</strong></p>
+                <p className="lead">Gyroscope: <strong>X= { this.getGyroX() } / Y= { this.getGyroY() } / Z= { this.getGyroZ() }</strong></p>
+                <p className="lead">Accelerometer: <strong>X= { this.getAcceX() } / Y= { this.getAcceY() } / Z= { this.getAcceZ() }</strong></p>
             </div>
         </div>
      );
