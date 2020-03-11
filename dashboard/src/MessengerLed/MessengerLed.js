@@ -8,6 +8,7 @@ export default class MessengerLed extends Component {
       messengerLedValue : ""
     }
     this.handleChangeText = this.handleChangeText.bind(this);
+    this.updateLedMessengerText = this.updateLedMessengerText.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +21,9 @@ export default class MessengerLed extends Component {
     });
   }
 
+  updateLedMessengerText(e) {
+    console.log(this.state.messengerLedValue);
+  }
 
   render() {
     return (
@@ -37,15 +41,17 @@ export default class MessengerLed extends Component {
                 <br></br><br></br><br></br><br></br>
 
                 <div className="form-group text-center">
-                  <div className="input-group">
-                    <input type="input" className="messageInput form-control text-center" onChange={ this.handleChangeText }></input>
+                  <div className="form-group text-center">
+                    <label htmlFor="ledMessengerInput">Change Messenger Led text :</label>
+                    <input id="ledMessengerInput" type="input" className="messageInput form-control text-center" onChange={ this.handleChangeText }></input>
                   </div>
-                  <div className="input-group">
-                    <input type="input" className="previewInput form-control text-center" value={this.state.messengerLedValue} readOnly></input>
+                  <div className="form-group text-center">
+                    <label htmlFor="ledMessengerPreview">Messenger Led Preview :</label>
+                    <input id="ledMessengerPreview" type="input" className="previewInput form-control text-center" value={this.state.messengerLedValue} readOnly></input>
                   </div>
 
                   <div className="text-center">
-                    <button className="btn btn-lg btn-secondary" >Change Text</button>
+                    <button className="btn btn-lg btn-secondary" onClick={ this.updateLedMessengerText } >Change Text</button>
                   </div>
                 </div>
             </div>
