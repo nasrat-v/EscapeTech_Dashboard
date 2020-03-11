@@ -39,8 +39,8 @@ class SmartSocket extends React.Component {
           this.setState({ isSocketOn: res.data.socketIsOn });
       })
       .catch(function (err) {
-          console.error(err);
-          this.setState({ isSocketOn: this.props.isSocketOn });
+        if (this !== undefined)
+            this.setState({ isSocketOn: this.props.isSocketOn });
       })
   }
 

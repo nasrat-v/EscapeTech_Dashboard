@@ -1,0 +1,28 @@
+{
+    "TriggerList": [
+        {
+            "index":"0",
+            "triggeringfunction": "température",
+            "trigger":">",
+            "value":"30",
+            "triggeredfunction":"Light",
+            "arguments":"Blue"
+        },
+        {
+            "index":"1",
+            "triggeringfunction": "température",
+            "trigger":"<",
+            "value":"28",
+            "triggeredfunction":"Light",
+            "arguments":"Green"
+        },
+        {
+            "index":"2",
+            "triggeringfunction": "température",
+            "trigger":"==",
+            "value":"29",
+            "triggeredfunction":"Light",
+            "arguments":"Purple"
+        }
+    ]
+}

@@ -20,11 +20,11 @@ export default class TriggerGenerator extends Component {
 
   updateTrigger(e) {
     console.log(e.target.value);
-    this.state.trigger = e.target.value;
+    this.setState({trigger:e.target.value});
   }
 
   updateTriggeredFunction(e) {
-    this.state.TriggeredFonction = e.target.value;
+    this.setState({TriggeredFonction:e.target.value});
   }
 
   addTrigger(e) {
@@ -43,7 +43,7 @@ export default class TriggerGenerator extends Component {
   }
 
   getTriggerList() {
-    var triggeringFonctions = new Array();
+    var triggeringFonctions = [];
 
     triggeringFonctions.push(this.fillTemperatureTrigger);
     triggeringFonctions.push(this.fillLightTrigger);
@@ -79,7 +79,7 @@ export default class TriggerGenerator extends Component {
     return (
       <div className="container jumbotron">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-3">
            <div className="form-group text-center">
             <label htmlFor="TriggerFonctions">Triggering fonction:</label>
             <select className="form-control" id="TriggerFonctions" onChange={ this.FillTriggerList }>
@@ -104,7 +104,7 @@ export default class TriggerGenerator extends Component {
               <input type="text" className="form-control" onChange={ this.updateTriggerValue } ></input>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <div className="form-group text-center">
               <label htmlFor="TriggeredFonctions">Triggered fonction:</label>
               <select className="form-control" id="TriggeredFonctions" onChange={ this.updateTriggeredFunction } >
@@ -115,10 +115,15 @@ export default class TriggerGenerator extends Component {
               </select>
             </div>
           </div>
+          <div className="col-md-2">
+            <div className="form-group text-center">
+              <label id="TriggerValueLabel">Value :</label>
+              <input type="text" className="form-control" onChange={ this.updateChangeValue } ></input>
+            </div>
+          </div>
           <div className="col-md-12 text-center">
             <button className="btn btn-primary" onClick={ this.addTrigger }>Register Trigger</button>
-          </div>          
-        
+          </div>        
         </div>
       </div>
     )

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.margin-10 {
+    margin : 10px !important;
+}
+
+.naval-blue {
+    background-color: #2f3640 !important;
+}
+
+.text-red {
+    font-family: 'Roboto', sans-serif;
+    color: #b71540;
+}
+
+.text-whitey {
+    font-family: 'Roboto', sans-serif;
+    color: #ced6e0 !important;
+}
+
+.text-dark {
+    font-family: 'Roboto', sans-serif;
+    color: #2f3640 !important;
+}
+
+.btn-darkred {
+    background-color: #ced6e0 !important;
+    font-family: 'Roboto', sans-serif;
+    color: #b71540 !important;
+}
+
+.btn-darkred:hover {
+    background-color: #b71540 !important;
+    font-family: 'Roboto', sans-serif;
+    color: #ced6e0 !important;
+    border: 1px solid #ced6e0;
+}
+
+.mazarine-blue {
+    background-color: #b71540 !important;
+}

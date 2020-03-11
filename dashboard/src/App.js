@@ -5,6 +5,7 @@ import SmartSocket from './TuyaDevice/SmartSocket';
 import SmartLight from './TuyaDevice/SmartLight';
 import MessengerLed from './MessengerLed/MessengerLed';
 import TriggerGenerator from './TriggerGenerator/TriggerGenerator';
+import TriggerList from './triggerList/triggerList';
 
 class App extends Component {
   render() {
@@ -34,6 +35,8 @@ class App extends Component {
                   <MessengerLed/>
                   <br></br><br></br>
                   <TriggerGenerator/>
+                  <br></br><br></br>
+                  <TriggerList/>
               </div>
           </section>
       </div>

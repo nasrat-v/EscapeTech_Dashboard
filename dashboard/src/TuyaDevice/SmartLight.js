@@ -40,7 +40,8 @@ class SmartLight extends React.Component {
       })
       .catch(function (err) {
           console.error(err);
-          this.setState({ isLightOn: this.props.isLightOn });
+          if (this !== undefined)
+            this.setState({ isLightOn: this.props.isLightOn });
       })
   }
 
