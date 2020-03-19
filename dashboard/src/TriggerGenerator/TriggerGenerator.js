@@ -86,7 +86,7 @@ export default class TriggerGenerator extends Component {
     triggeringFonctions.push("magnetometer");
     triggeringFonctions.push("gyroscope");
     triggeringFonctions.push("accelerometer");
-    triggeringFonctions.push("light");
+    triggeringFonctions.push("lightColor");
     triggeringFonctions.push("socket");
 
 
@@ -106,7 +106,6 @@ export default class TriggerGenerator extends Component {
     console.log("Triggering fonction", this.state.triggeringFonction);
 
     if (value <= 5) {
-      console.log("WTF");
         this.setState({
           captorClass : "form-group text-center",
           lightsClass : "form-group text-center d-none",    
@@ -143,12 +142,12 @@ export default class TriggerGenerator extends Component {
            </div>
           </div>
           <div className="col-md-2">
-            <div className="form-group text-center">
+            <div className={this.state.captorClass}>
               <label htmlFor="Trigger">Trigger :</label>
               <select className="form-control" id="Trigger" onChange={ this.updateTrigger }>
-                <option value=">"> {sup} </option>
-                <option value="<"> {inf}</option>
-                <option value="=="> {eq}</option>
+                <option value=">">{sup} </option>
+                <option value="<">{inf}</option>
+                <option value="==">{eq}</option>
               </select>
               </div>
           </div>
@@ -162,8 +161,8 @@ export default class TriggerGenerator extends Component {
             <div className={this.state.lightsClass}>
               <label id="TriggerValueLabel" htmlFor="TriggerValue">Value light :</label>
               <select className="form-control" onChange={this.updateTriggerValue}>
-                <option value="on">Allumer</option>
-                <option value="off">Eteindre</option>
+                <option value="true">Allumer</option>
+                <option value="false">Eteindre</option>
               </select>
             </div>
           </div>
@@ -171,7 +170,7 @@ export default class TriggerGenerator extends Component {
             <div className="form-group text-center">
               <label htmlFor="TriggeredFonctions">Triggered fonction:</label>
               <select className="form-control" id="TriggeredFonctions" onChange={ this.updateTriggeredFunction } >
-                <option value="light">Lumière</option>
+                <option value="lightColor">Lumière</option>
                 <option value="socket">Interrupteur</option>
                 <option value="ledmessenger">Led Messenger</option>
               </select>
@@ -181,8 +180,8 @@ export default class TriggerGenerator extends Component {
             <div className={this.state.lightArgClass}>
               <label>Value :</label>            
               <select id="LightArgument" className="form-control" onChange={this.updateChangeValue}>
-              <option value="on">Allumer</option>
-              <option value="off">Eteindre</option>
+              <option value="true">Allumer</option>
+              <option value="false">Eteindre</option>
               <option value="red">Rouge</option>
               <option value="yellow">Jaune</option>
               <option value="green">Verte</option>
@@ -196,8 +195,8 @@ export default class TriggerGenerator extends Component {
             <div className={this.state.socketArgClass}>
               <label>Value :</label>
               <select id="SocketArgument" className="form-control" onChange={this.updateChangeValue}>
-              <option value="on">Allumer</option>
-              <option value="off">Eteindre</option>
+              <option value="true">Allumer</option>
+              <option value="false">Eteindre</option>
               <option value="red">Rouge</option>
               <option value="yellow">Jaune</option>
               <option value="green">Verte</option>
