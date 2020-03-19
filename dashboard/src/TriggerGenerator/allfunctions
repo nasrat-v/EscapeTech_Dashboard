@@ -1,0 +1,32 @@
+Light :
+ - on / off
+ - color
+
+Socket :
+ - on/off
+ - color
+ - flash
+ 
+LedMessenger : 
+ - Message
+
+
+GET :
+
+Température
+Humidité
+Pression
+Magnétomètre
+Gyroscope
+accelerometre
+
+light status on/off
+socket status on/off
+
+
+
+TRUE == allumé
+
+FALSE == eteint
+
+ Implémenté different
