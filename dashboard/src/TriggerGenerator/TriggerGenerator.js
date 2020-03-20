@@ -7,7 +7,7 @@ export default class TriggerGenerator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
+      value: "true",
       trigger: ">",
       triggeringFonction: "temperature",
       TriggeredFonction: "lightStatus",
@@ -50,7 +50,10 @@ export default class TriggerGenerator extends Component {
         socketArgClass: "form-group text-center d-none",
         ledmessengerArgClass: "form-group text-center d-none"
       });
-    } else if (e.target.value === "socketStatus" || e.target.value === "armLedStatus") {
+    } else if (
+      e.target.value === "socketStatus" ||
+      e.target.value === "armLedStatus"
+    ) {
       this.setState({
         lightArgClass: "form-group text-center d-none",
         socketArgClass: "form-group text-center",
