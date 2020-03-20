@@ -59,7 +59,7 @@ class CoinSensor extends React.Component {
 
   fetchHumidity() {
     axios
-      .get(`http://192.168.2.7:3000/getHumidity`)
+      .get(`http://192.168.2.10:3000/getHumidity`)
       .then(res => {
         console.log(res.data);
         this.setState({ humi: res.data });
@@ -71,7 +71,7 @@ class CoinSensor extends React.Component {
 
   fetchPressure() {
     axios
-      .get(`http://192.168.2.7:3000/getPressure`)
+      .get(`http://192.168.2.10:3000/getPressure`)
       .then(res => {
         console.log(res.data);
         this.setState({ pres: res.data });
@@ -83,7 +83,7 @@ class CoinSensor extends React.Component {
 
   fetchMagnetometer() {
     axios
-      .get(`http://192.168.2.7:3000/getMagnetometer`)
+      .get(`http://192.168.2.10:3000/getMagnetometer`)
       .then(res => {
         console.log(res.data);
         this.setState({ magn: res.data });
@@ -95,7 +95,7 @@ class CoinSensor extends React.Component {
 
   fetchGyroscope() {
     axios
-      .get(`http://192.168.2.7:3000/getGyroscope`)
+      .get(`http://192.168.2.10:3000/getGyroscope`)
       .then(res => {
         console.log(res.data);
         this.setState({ gyro: res.data });
@@ -107,7 +107,7 @@ class CoinSensor extends React.Component {
 
   fetchAccelerometer() {
     axios
-      .get(`http://192.168.2.7:3000/getAccelerometer`)
+      .get(`http://192.168.2.10:3000/getAccelerometer`)
       .then(res => {
         console.log(res.data);
         this.setState({ acce: res.data });
