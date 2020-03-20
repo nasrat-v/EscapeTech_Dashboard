@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './triggerList.css';
 
 
@@ -14,11 +15,12 @@ export default class triggerList extends Component {
       triggerList : []
     }
     this.deleteTrigger = this.deleteTrigger.bind(this);
+    this.getTriggers = this.getTriggers.bind(this);
 
   }
 
   componentDidMount() {
-    getTriggers();
+    this.getTriggers();
       this.setState({
         triggerList: JSON.parse(triggerListJson)['TriggerList']
     });
