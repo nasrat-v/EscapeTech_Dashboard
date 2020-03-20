@@ -84,8 +84,8 @@ export default class TriggerGenerator extends Component {
       .then(response => {
         if (response.data.status) {
           console.log(response);
-          window.location.reload();
         }
+        window.location.reload();
       })
       .catch(error => {
         console.log(error);
