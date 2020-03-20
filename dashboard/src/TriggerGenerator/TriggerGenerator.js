@@ -12,7 +12,7 @@ export default class TriggerGenerator extends Component {
       triggeringFonction: "temperature",
       TriggeredFonction: "lightStatus",
       TriggeredValueClassName: "",
-      argument: "",
+      argument: "true",
       lightArgClass: "",
       socketArgClass: "d-none",
       ledmessengerArgClass: "d-none",
@@ -33,6 +33,7 @@ export default class TriggerGenerator extends Component {
   }
 
   updateChangeValue(e) {
+    console.log(e.target.value);
     this.setState({ argument: e.target.value });
   }
 

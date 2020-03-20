@@ -19,9 +19,6 @@ export default class triggerList extends Component {
 
   componentDidMount() {
     this.getTriggers();
-    this.setState({
-      triggerList: JSON.parse(triggerListJson)["TriggerList"]
-    });
   }
 
   getTriggers() {
@@ -29,7 +26,10 @@ export default class triggerList extends Component {
       .get(URL + "/getTriggers")
       .then(res => {
         console.log(res.data);
-        this.setState({ temp: res.data });
+        this.setState({
+          triggerList: res.data.response
+        });
+        console.log(this.state.triggerList);
       })
       .catch(function(err) {
         console.error(err);
@@ -66,7 +66,7 @@ export default class triggerList extends Component {
             <input
               type="text"
               className="text-whitey form-control border-0 text-center mazarine-blue"
-              value={item.triggeringfunction}
+              value={item.triggeringFunction}
               readOnly
             ></input>
           </div>
@@ -77,7 +77,7 @@ export default class triggerList extends Component {
             <input
               type="text"
               className="text-whitey form-control border-0 text-center mazarine-blue"
-              value={item.trigger}
+              value={item.comparator}
               readOnly
             ></input>
           </div>
@@ -99,7 +99,7 @@ export default class triggerList extends Component {
             <input
               type="text"
               className="text-whitey form-control border-0 text-center mazarine-blue"
-              value={item.triggeredfunction}
+              value={item.triggeredFunction}
               readOnly
             ></input>
           </div>
@@ -110,7 +110,7 @@ export default class triggerList extends Component {
             <input
               type="text"
               className="text-whitey form-control border-0 text-center mazarine-blue"
-              value={item.arguments}
+              value={item.argument}
               readOnly
             ></input>
           </div>
@@ -119,7 +119,7 @@ export default class triggerList extends Component {
           <div className="form-group text-center">
             <button
               className="btn btn-darkred"
-              value={item.index}
+              value={item.id}
               onClick={this.deleteTrigger}
             >
               supprimer
