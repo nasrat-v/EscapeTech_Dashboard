@@ -50,7 +50,7 @@ export default class TriggerGenerator extends Component {
         socketArgClass: "form-group text-center d-none",
         ledmessengerArgClass: "form-group text-center d-none"
       });
-    } else if (e.target.value === "socketStatus") {
+    } else if (e.target.value === "socketStatus" || e.target.value === "armLedStatus") {
       this.setState({
         lightArgClass: "form-group text-center d-none",
         socketArgClass: "form-group text-center",
@@ -111,6 +111,9 @@ export default class TriggerGenerator extends Component {
     triggeringFonctions.push("accelerometer");
     triggeringFonctions.push("lightStatus");
     triggeringFonctions.push("socketStatus");
+    triggeringFonctions.push("armIsMoving");
+    triggeringFonctions.push("armIsMagnet");
+    triggeringFonctions.push("armIsHorizontal");
 
     return triggeringFonctions;
   }
@@ -164,6 +167,9 @@ export default class TriggerGenerator extends Component {
                 <option value="5">Accéleromètre</option>
                 <option value="6">Lumière</option>
                 <option value="7">Interrupteur</option>
+                <option value="8">ARM Moving</option>
+                <option value="9">ARM Is magnet</option>
+                <option value="10">ARM Is horizontal</option>
               </select>
             </div>
           </div>
@@ -217,6 +223,7 @@ export default class TriggerGenerator extends Component {
                 <option value="lightStatus">Lumière</option>
                 <option value="socketStatus">Interrupteur</option>
                 <option value="ledmessenger">Led Messenger</option>
+                <option value="armLedStatus">Led ARM</option>
               </select>
             </div>
           </div>
