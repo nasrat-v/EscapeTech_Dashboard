@@ -4,6 +4,7 @@ import './triggerList.css';
 
 var triggerListJson = '{"TriggerList": [{"index":"0","triggeringfunction": "température","trigger":">","value":"30","triggeredfunction":"Light","arguments":"Blue"},{"index":"1","triggeringfunction": "température","trigger":"<","value":"28","triggeredfunction":"Light","arguments":"Green"},{"index":"2","triggeringfunction": "température","trigger":"==","value":"29","triggeredfunction":"Light","arguments":"Purple"}]}';
 
+var URL = "127.0.0.1:3000/";
 
 export default class triggerList extends Component {
 
@@ -17,13 +18,35 @@ export default class triggerList extends Component {
   }
 
   componentDidMount() {
+    getTriggers();
       this.setState({
         triggerList: JSON.parse(triggerListJson)['TriggerList']
     });
   }
 
+  getTriggers() {
+    axios.get(URL+"/getTriggers")
+    .then(res => {
+        console.log(res.data);
+        this.setState({ temp: res.data });
+    })
+    .catch(function (err) {
+        console.error(err);
+    })
+  }
+
   deleteTrigger(e) {
       console.log("Delete trigger with id :", e.target.value);
+      axios.post(URL+"/deleteTrigger", {
+          id   : e.target.value,
+        })
+        .then(response => {
+          if (response.data.status) {
+           console.log(response);
+         } 
+        }).catch(
+          error => { console.log(error) }
+          );
   }
 
   render() {

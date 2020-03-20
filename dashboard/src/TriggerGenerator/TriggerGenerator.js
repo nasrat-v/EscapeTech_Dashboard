@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
+let URL = "127.0.0.1:3000/";
 
 export default class TriggerGenerator extends Component {
   constructor(props) {
@@ -40,13 +43,13 @@ export default class TriggerGenerator extends Component {
 
   updateTriggeredFunction(e) {
     this.setState({TriggeredFonction:e.target.value});
-    if (e.target.value === "light") {
+    if (e.target.value === "lightStatus") {
       this.setState({
         lightArgClass : "form-group text-center",
         socketArgClass : "form-group text-center d-none",
         ledmessengerArgClass : "form-group text-center d-none"
       })
-    } else if (e.target.value === "socket") {
+    } else if (e.target.value === "socketStatus") {
       this.setState({
         lightArgClass : "form-group text-center d-none",
         socketArgClass : "form-group text-center",
@@ -67,7 +70,22 @@ export default class TriggerGenerator extends Component {
     console.log("triggeringFunction = ", this.state.triggeringFonction);
     console.log("triggeredFonction = ", this.state.TriggeredFonction);
     console.log("argument =", this.state.argument);
-  }
+    axios.post(URL+"/addTrigger", {
+      // data to be sent
+        comparator : this.state.trigger,
+        triggeringfonction: this.state.triggeringFonction,
+        triggeredFonction : this.state.TriggeredFonction,
+        value : this.state.value,
+        argument : this.state.argument
+      })
+      .then(response => {
+        if (response.data.status) {
+         console.log(response);
+       } 
+      }).catch(
+        error => { console.log(error) }
+        );
+    }
 
   componentDidMount() {
     //Lance le code ici une fois que la page a été chargée.
@@ -86,8 +104,8 @@ export default class TriggerGenerator extends Component {
     triggeringFonctions.push("magnetometer");
     triggeringFonctions.push("gyroscope");
     triggeringFonctions.push("accelerometer");
-    triggeringFonctions.push("lightColor");
-    triggeringFonctions.push("socket");
+    triggeringFonctions.push("lightStatus");
+    triggeringFonctions.push("socketStatus");
 
 
     return (triggeringFonctions);
@@ -170,8 +188,8 @@ export default class TriggerGenerator extends Component {
             <div className="form-group text-center">
               <label htmlFor="TriggeredFonctions">Triggered fonction:</label>
               <select className="form-control" id="TriggeredFonctions" onChange={ this.updateTriggeredFunction } >
-                <option value="lightColor">Lumière</option>
-                <option value="socket">Interrupteur</option>
+                <option value="lightStatus">Lumière</option>
+                <option value="socketStatus">Interrupteur</option>
                 <option value="ledmessenger">Led Messenger</option>
               </select>
             </div>
