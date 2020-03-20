@@ -1,32 +1,5 @@
-Light :
- - on / off
- - color
+Reload page après delete et add triger
 
-Socket :
- - on/off
- - color
- - flash
- 
-LedMessenger : 
- - Message
+Led messenger Call API
 
-
-GET :
-
-Température
-Humidité
-Pression
-Magnétomètre
-Gyroscope
-accelerometre
-
-light status on/off
-socket status on/off
-
-
-
-TRUE == allumé
-
-FALSE == eteint
-
-Implémenté different
+Front marco polo

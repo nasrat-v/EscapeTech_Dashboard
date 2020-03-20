@@ -5,7 +5,7 @@ import "./triggerList.css";
 var triggerListJson =
   '{"TriggerList": [{"index":"0","triggeringfunction": "température","trigger":">","value":"30","triggeredfunction":"Light","arguments":"Blue"},{"index":"1","triggeringfunction": "température","trigger":"<","value":"28","triggeredfunction":"Light","arguments":"Green"},{"index":"2","triggeringfunction": "température","trigger":"==","value":"29","triggeredfunction":"Light","arguments":"Purple"}]}';
 
-var URL = "http://192.168.2.10:3000";
+  var URL = "http://192.168.2.10:3000";
 
 export default class triggerList extends Component {
   constructor(props) {
@@ -45,6 +45,7 @@ export default class triggerList extends Component {
       .then(response => {
         if (response.data.status) {
           console.log(response);
+          window.location.reload();
         }
       })
       .catch(error => {

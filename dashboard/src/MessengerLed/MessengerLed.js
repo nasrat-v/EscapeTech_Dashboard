@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import './MessengerLed.css';
+
+var URL = "http://192.168.2.10:3000";
 
 export default class MessengerLed extends Component {
   constructor(props) {
@@ -23,6 +26,18 @@ export default class MessengerLed extends Component {
 
   updateLedMessengerText(e) {
     console.log(this.state.messengerLedValue);
+    axios
+    .post(URL + "/ledMessenger", {
+      message: this.state.messengerLedValue
+    })
+    .then(response => {
+      if (response.data.status) {
+        console.log("Text changed");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   render() {
